@@ -61,7 +61,7 @@ class MAIN:
            self.fruit.randomize()
            self.snake.add_block()
    def check_fail(self):
-      if (not 0 <0 = self.snake.body[0].x < cell_number) OR (not 0 <= self.snake.body[0].y < cell_number):
+      if (not 0 <= self.snake.body[0].x < cell_number) OR (not 0 <= self.snake.body[0].y < cell_number):
          self.game_over()
 
    for block in self.snake.body[1]
@@ -86,33 +86,34 @@ main_game = MAIN()
 
 
 while True:
-   for event in pygame.event.get():
-       if event.type == pygame.QUIT: #if the red x clicked, quit pygame
-           pygame.quit()
-           sys.exit
+      for event in pygame.event.get():
+         if event.type == pygame.QUIT: #if the red x clicked, quit pygame
+            pygame.quit()
+            sys.exit
 
 
-       if event.type == SCREEN_UPDATE: #calls the snake movement function
-           main_game.update()
+         if event.type == SCREEN_UPDATE: #calls the snake movement function
+            main_game.update()
+            self.check_fail()
 
 
-       if event.type == pygame.KEYDOWN: #if the event is equal to key press of
-           if event.key == pygame.K_UP: #when up arrow pressed...
+         if event.type == pygame.KEYDOWN: #if the event is equal to key press of
+            if event.key == pygame.K_UP: #when up arrow pressed...
                if main_game.snake.direction.y != 1:
                   main_game.snake.direction = Vector2(0,-1) #changes y coordinate by -1, moving up
 
 
-           if event.key == pygame.K_RIGHT: #when right arrow pressed...
+            if event.key == pygame.K_RIGHT: #when right arrow pressed...
                if main_game.snake.direction.x != -1:
                   main_game.snake.direction = Vector2(1,0) #changes x coordinate by 1, moving right
 
 
-           if event.key == pygame.K_DOWN: #when down arrow pressed...
+            if event.key == pygame.K_DOWN: #when down arrow pressed...
                if main_game.snake.direction.y != -1:
                   main_game.snake.direction = Vector2(0,1) #changes y coordinate by 1, moving down
 
 
-           if event.key == pygame.K_LEFT: #when left arrow pressed...
+            if event.key == pygame.K_LEFT: #when left arrow pressed...
                if main_game.snake.direction.x != 1:
                   main_game.snake.direction = Vector2(-1,0) #changes x coordinate by -1, moving left
 
